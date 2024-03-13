@@ -6,8 +6,6 @@
     <h1>Аккаунт</h1>
 
     <br>
-    <br>
-    <br>
 
     {% if user.image %}
     <div class="photo" style="background-image: url('/media/images/{{ user.image }}')"></div>
@@ -16,22 +14,17 @@
     {% endif %}
 
     <br>
-    <br>
-    <br>
 
     <p>Имя пользователя: {{ user.username }}</p>
 
-    <br>
-
     <p>Электронная почта: {{ user.email }}</p>
-
-    <br>
 
     {% if user.status %}
     <p>О себе: {{ user.status }}</p>
     {% else %}
     <p>О себе: не добавлено</p>
     {% endif %}
+
     <br>
 
     <p>Изменить статус:</p>
@@ -40,7 +33,7 @@
         {% csrf_token %}
         {{ form.status }}
 
-        <button type="submit">Подтвердить</button>
+        <button type="submit" class="btn btn-primary"  style="margin-left: 10px">Подтвердить</button>
     </form>
 
     <br>
@@ -51,11 +44,11 @@
         {% csrf_token %}
         {{ form.image }}
 
-        <button type="submit">Подтвердить</button>
+        <button type="submit" class="btn btn-primary">Подтвердить</button>
     </form>
 
     <br>
 
-    <a class="logout" href="api/auth/logout">Выйти</a>
+    <a class="btn btn-primary logout" href="api/auth/logout">Выйти</a>
 </div>
 {% endblock content %}

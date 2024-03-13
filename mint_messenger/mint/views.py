@@ -29,6 +29,7 @@ class AccountPage(DataMixin, TemplateView, FormView):
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
             return HttpResponseRedirect(LOGOUT_REDIRECT_URL)
+
         return super().dispatch(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
@@ -68,10 +69,9 @@ class AccountPage(DataMixin, TemplateView, FormView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title='Аккаунт',
-                                      option_selected=1,
-                                      user=self.request.user)
+        c_def = self.get_user_context(title='Аккаунт', option_selected=1, user=self.request.user)
         context = dict(list(context.items()) + list(c_def.items()))
+
         return context
 
 
@@ -81,15 +81,16 @@ class UserAccountPage(DataMixin, TemplateView):
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
             return HttpResponseRedirect(LOGOUT_REDIRECT_URL)
+
         return super().dispatch(request, *args, **kwargs)
 
     def get_context_data(self, *, object_list=None, **kwargs):
         user = User.objects.get(id=self.kwargs['user'])
+
         context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title='Аккаунт пользователя ' + user.username,
-                                      option_selected=3,
-                                      user=user)
+        c_def = self.get_user_context(title='Аккаунт пользователя ' + user.username, option_selected=3, user=user)
         context = dict(list(context.items()) + list(c_def.items()))
+
         return context
 
 
@@ -101,6 +102,7 @@ class Chats(DataMixin, ListView):
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
             return HttpResponseRedirect(LOGOUT_REDIRECT_URL)
+
         return super().dispatch(request, *args, **kwargs)
 
     def get_queryset(self):
@@ -127,10 +129,9 @@ class Chats(DataMixin, ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title='Сообщения',
-                                      option_selected=2,
-                                      get_url=User.get_absolute_url)
+        c_def = self.get_user_context(title='Сообщения', option_selected=2, get_url=User.get_absolute_url)
         context = dict(list(context.items()) + list(c_def.items()))
+
         return context
 
 
@@ -143,6 +144,7 @@ class Chat(DataMixin, ListView, FormView):
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
             return HttpResponseRedirect(LOGOUT_REDIRECT_URL)
+
         return super().dispatch(request, *args, **kwargs)
 
     def get_queryset(self):
@@ -169,10 +171,11 @@ class Chat(DataMixin, ListView, FormView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         current_user = User.objects.get(id=self.kwargs['user']).username
+
         context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title='Чат с ' + current_user,
-                                      option_selected=2)
+        c_def = self.get_user_context(title='Чат с ' + current_user, option_selected=2)
         context = dict(list(context.items()) + list(c_def.items()))
+
         return context
 
 
@@ -184,6 +187,7 @@ class Friends(DataMixin, ListView):
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
             return HttpResponseRedirect(LOGOUT_REDIRECT_URL)
+
         return super().dispatch(request, *args, **kwargs)
 
     def get_queryset(self):
@@ -211,6 +215,7 @@ class Friends(DataMixin, ListView):
                                       invites=len(User.objects.get(id=self.request.user.id).invites) > 0,
                                       friends=len(User.objects.get(id=self.request.user.id).friends) > 0)
         context = dict(list(context.items()) + list(c_def.items()))
+
         return context
 
 
@@ -221,6 +226,7 @@ class RegisterPage(FormView):
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             return HttpResponseRedirect(LOGIN_REDIRECT_URL)
+
         return super().dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
@@ -231,6 +237,7 @@ class RegisterPage(FormView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Регистрация'
+
         return context
 
 
@@ -241,6 +248,7 @@ class ForgotPassword(FormView):
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             return HttpResponseRedirect(LOGIN_REDIRECT_URL)
+
         return super().dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
@@ -266,6 +274,7 @@ class ForgotPassword(FormView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Восстановление пароля'
+
         return context
 
 
@@ -294,6 +303,7 @@ class PasswordChange(FormView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Восстановление пароля'
+
         return context
 
 
@@ -306,6 +316,7 @@ class EditMessage(DataMixin, UpdateView):
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
             return HttpResponseRedirect(LOGOUT_REDIRECT_URL)
+
         return super().dispatch(request, *args, **kwargs)
 
     def get_messages(self):
@@ -325,6 +336,7 @@ class EditMessage(DataMixin, UpdateView):
                                       id=self.object.id,
                                       messages=self.get_messages(),
                                       option_selected=2)
+
         return dict(list(context.items()) + list(c_def.items()))
 
 

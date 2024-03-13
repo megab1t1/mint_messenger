@@ -4,7 +4,7 @@
 {% block auth_form %}
 <div class="login">
     <div class="login_head">
-        <h1 class="mint_messenger" style="font-size: 35px; top: 30px">Mint messenger</h1>
+        <h1 class="mint_messenger">Mint messenger</h1>
     </div>
 
     <div class="login_form">
@@ -15,7 +15,7 @@
 
             {{ form.as_p }}
 
-            <button type="submit" class="form_submit">Войти</button>
+            <button type="submit" class="btn btn-primary form_submit">Войти</button>
         </form>
 
         <a class="auth_hint" href="{% url 'register_page' %}">Нет аккаунта?</a>

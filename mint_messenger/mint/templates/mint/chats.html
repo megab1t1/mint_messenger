@@ -18,8 +18,6 @@
 
         <p style="font-weight: bold; font-size: 25px">{{ u.user }}</p>
 
-        <br>
-
         <div>
             {% if u.last_message %}
             {% if u.last_message.is_read %}
@@ -34,6 +32,7 @@
         </div>
 
     </a>
+
     <br>
     {% endif %}
     {% empty %}
