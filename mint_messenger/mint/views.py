@@ -15,7 +15,6 @@ from random import randint
 
 from .utils import *
 from .forms import *
-from .serializers import *
 
 
 global_user_info = {}
