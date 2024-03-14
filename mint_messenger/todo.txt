@@ -1,2 +1,0 @@
-todo
-    Автоматическое обновление данных(django channels, websockets)
