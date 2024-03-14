@@ -5,9 +5,8 @@
 {% block content %}
 <div class="block overflow">
     {% if invites %}
-    <h1>Заявки в друзья</h1>
+    <h2>Заявки в друзья</h2>
 
-    <br>
     <br>
 
     {% for u in users %}
@@ -18,9 +17,8 @@
     {% endif %}
 
     {% if friends %}
-    <h1>Друзья</h1>
+    <h2>Друзья</h2>
 
-    <br>
     <br>
 
     {% for u in users %}
@@ -30,9 +28,8 @@
     {% endfor %}
     {% endif %}
 
-    <h1>Другие пользователи</h1>
+    <h2>Другие пользователи</h2>
 
-    <br>
     <br>
 
     {% for u in users %}

@@ -3,10 +3,8 @@
 
 {% block content %}
 <div class="block">
-    <h1>Аккаунт пользователя {{ user }}</h1>
+    <h2>Аккаунт пользователя {{ user }}</h1>
 
-    <br>
-    <br>
     <br>
 
     {% if user.image %}
@@ -14,18 +12,11 @@
     {% else %}
     <div class="photo" style="background-image: url({% static '/mint/images/no_photo.png' %})"></div>
     {% endif %}
-
-    <br>
-    <br>
     <br>
 
     <p>Имя пользователя: {{ user.username }}</p>
 
-    <br>
-
     <p>Электронная почта: {{ user.email }}</p>
-
-    <br>
 
     {% if user.status %}
     <p>О себе: {{ user.status }}</p>
