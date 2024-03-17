@@ -35,7 +35,7 @@ header {
 }
 
 .messages {
-    height: 626px
+    height: 646px
 }
 
 .left_bar {
@@ -120,7 +120,7 @@ header {
 
 .message_input {
     display: block;
-    height: 60px;
+    height: 100px;
     width: 100%;
     border: 2px solid black;
     margin: 20px auto;
@@ -135,13 +135,9 @@ header {
 }
 
 .message_submit {
-    display: inline-block;
-    width: 60px;
     height: 60px;
     float: right;
-    cursor: pointer;
-    border: 0;
-    background: #defbff
+    background: #0dcaf0
 }
 
 .form_submit {
@@ -183,6 +179,10 @@ header {
     top: 23px
 }
 
+.header_logo {
+    top: 37px
+}
+
 .form_field {
     height: 40px;
     width: 75%;
@@ -192,9 +192,8 @@ header {
 .chat {
     display: block;
     width: 98.5%;
-    height: 85px;
     cursor: pointer;
-    padding: 5px;
+    padding: 10px;
     border: 1px solid black;
     background: #fff;
     text-decoration: none;
@@ -214,17 +213,7 @@ header {
 .chat_photo {
     height: 73px;
     width: 73px;
-    float: left;
     margin-right: 20px
-}
-
-.logout {
-    width: 200px
-}
-
-.logout:hover {
-    color: #fff;
-    background: #00cf8a
 }
 
 .auth_hint {
@@ -250,39 +239,13 @@ header {
     float: right
 }
 
-.friend_button {
-    display: inline-block;
-    width: 150px;
-    height: 30px;
-    margin-top: 10px;
-    cursor: pointer;
-    background: #00e096;
-    border-radius: 10px;
-    text-decoration: none;
-    color: #000;
-    text-align: center
-}
-
-.friend_button:hover {
-    color: #fff;
-    background: #00cf8a
-}
-
 .cancel {
-    display: inline-block;
-    width: 150px;
-    height: 30px;
-    margin-top: 10px;
-    cursor: pointer;
-    background: #d9d9d9;
-    border-radius: 10px;
-    text-decoration: none;
-    color: #000;
-    text-align: center
+    background: #a1a1a1
 }
 
 .cancel:hover {
-    background: #bfbfbf
+    background: #8a8a8a
+
 }
 
 .username {
@@ -300,4 +263,9 @@ header {
 
 .btn-primary:hover, .btn-primary:focus {
     background: #00cf8a
+}
+
+.btn-secondary {
+    border: 0;
+    --bs-btn-hover-border-color: #969696
 }
