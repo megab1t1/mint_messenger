@@ -195,7 +195,6 @@ header {
     cursor: pointer;
     padding: 10px;
     border: 1px solid black;
-    background: #fff;
     text-decoration: none;
     color: black
 }
@@ -212,8 +211,21 @@ header {
 
 .chat_photo {
     height: 73px;
-    width: 73px;
-    margin-right: 20px
+    width: 73px
+}
+
+.chat_username {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 25px;
+    text-decoration: none;
+    color: #000;
+    transition: 0.5s
+}
+
+.chat_username:hover {
+    color: #6b6b6b
 }
 
 .auth_hint {
@@ -246,12 +258,6 @@ header {
 .cancel:hover {
     background: #8a8a8a
 
-}
-
-.username {
-    text-decoration: none;
-    color: #000;
-    display: block
 }
 
 .btn-primary {
